@@ -1,0 +1,35 @@
+{
+  "name": "slop-fun",
+  "version": "1.1.0",
+  "description": "Crypto pool monitoring platform",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "cd server && npm run dev",
+    "compiler": "cd token-compiler-service && npm run dev",
+    "leaderboard": "cd leaderboard-service && npm run dev",
+    "transaction-broadcast": "cd transaction-broadcast-service && npm start",
+    "install-client": "cd client && npm install --legacy-peer-deps",
+    "install-server": "cd server && npm install",
+    "install-compiler": "cd token-compiler-service && npm install",
+    "install-leaderboard": "cd leaderboard-service && npm install",
+    "install-transaction-broadcast": "cd transaction-broadcast-service && npm install",
+    "install-all": "npm install && npm run install-client && npm run install-server && npm run install-compiler && npm run install-leaderboard && npm run install-transaction-broadcast",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "dev-all": "concurrently \"npm run server\" \"npm run client\" \"npm run compiler\" \"npm run leaderboard\" \"npm run transaction-broadcast\""
+  },
+  "keywords": [
+    "crypto",
+    "pools",
+    "blockchain"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "ethers": "^5.7.2"
+  }
+}

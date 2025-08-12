@@ -1,0 +1,14 @@
+{
+  "gravityScoreSystem": "0xE19300205F9289af2C7dDE68B45F71224c62c282",
+  "tokenFactory": "0x0c2c8cdbda12e1Fa16039546D99a837F4e4EB66b",
+  "swapFactory": "0x7055462ff70d49Dcc5ECB042ce46E4502a58De32",
+  "graduationRegistry": "0xb4Dc01007cca6039eB68928d6790B7ae0345960F",
+  "usdt": "0x3eC8A8705bE1D5ca90066b37ba62c4183B024ebf",
+  "treasury": "0x0f13e85B575964B8b4b77E37d43A6aE9E354e94C",
+  "network": {
+    "name": "0G-Galileo-Testnet",
+    "chainId": 16601,
+    "rpcUrl": "https://evmrpc-testnet.0g.ai"
+  },
+  "deploymentTime": "2025-05-17T10:32:46.684Z"
+}

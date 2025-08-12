@@ -1,0 +1,235 @@
+/* Card animations and UI effects */
+
+/* Pulsing effect for pool cards */
+.pool-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Shine effect for cards */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.5s ease;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.shine-effect:hover::after {
+  transform: rotate(30deg) translate(20%, 20%);
+  opacity: 1;
+}
+
+/* Price change animations */
+.price-up {
+  animation: fadeInUp 0.5s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.price-up::before {
+  content: '↑';
+  margin-right: 3px;
+}
+
+.price-down {
+  animation: fadeInDown 0.5s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.price-down::before {
+  content: '↓';
+  margin-right: 3px;
+}
+
+/* Smooth page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Button hover effects */
+.btn {
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduce animations based on user preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Animacja pulsu dla nowo dodanych poolów */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animacja potrząsania dla nowo dodanych poolów */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(-5px) rotate(-1deg); }
+  20% { transform: translateX(5px) rotate(1deg); }
+  30% { transform: translateX(-5px) rotate(-1deg); }
+  40% { transform: translateX(5px) rotate(1deg); }
+  50% { transform: translateX(-5px) rotate(-1deg); }
+  60% { transform: translateX(5px) rotate(1deg); }
+  70% { transform: translateX(-5px) rotate(-1deg); }
+  80% { transform: translateX(5px) rotate(1deg); }
+  90% { transform: translateX(-5px) rotate(-1deg); }
+  100% { transform: translateX(0); }
+}
+
+/* Animacja podświetlania krawędzi dla nowych poolów */
+@keyframes highlight-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--accent-color-rgb), 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(var(--accent-color-rgb), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--accent-color-rgb), 0);
+  }
+}
+
+/* Animacja obrazka dla nowych poolów */
+@keyframes pulse-image {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Efekt pojawienia się karty */
+@keyframes fade-in-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Zastosowanie animacji */
+.new-pool-animation {
+  animation: highlight-border 2s ease-in-out, shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+  transform-origin: center;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
+.pulse-image {
+  animation: pulse-image 2s infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Oddzielna klasa dla samej animacji potrząsania */
+.shake-animation {
+  animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+  transform-origin: center;
+}
+
+/* Animacja slidera */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+} 

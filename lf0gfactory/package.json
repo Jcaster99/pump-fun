@@ -1,0 +1,36 @@
+{
+  "name": "lf0g-factory",
+  "version": "1.0.0",
+  "description": "Contract deployment and interaction for LF0G Factory",
+  "main": "deploy.js",
+  "scripts": {
+    "deploy": "node deploy.js",
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "start-windows": "set PORT=5005 && node server.js",
+    "start-linux": "PORT=5005 node server.js",
+    "start": "set PORT=5005 && node server.js",
+    "extract-abi": "node extract-abi.js"
+  },
+  "keywords": [
+    "ethereum",
+    "bonding-curve",
+    "solidity",
+    "hardhat"
+  ],
+  "author": "LF0G.fun",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^5.7.2",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@openzeppelin/contracts": "^4.9.3",
+    "hardhat": "^2.17.2"
+  }
+}
