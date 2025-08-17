@@ -59,7 +59,7 @@ const PreloadScreen = ({ onLoadComplete }) => {
           <div className="neon-glow"></div>
           <img 
             src={logoImageSrc}
-            alt="lf0g.fun" 
+            alt="flop.fun"
             className="preload-logo"
             key={uniqueKey}
           />

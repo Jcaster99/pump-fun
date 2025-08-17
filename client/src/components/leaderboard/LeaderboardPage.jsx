@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useTheme } from '../../context/ThemeContext';
-import { Crown } from 'lucide-react';
-import ParticleBackground from '../common/ParticleBackground';
-import LoadingSpinner from '../common/LoadingSpinner';
+import React, { useEffect, useState } from 'react';
 import { fetchLeaderboardData } from '../../api/leaderboardApi';
-import useWindowSize from './useWindowSize';
+import { useTheme } from '../../context/ThemeContext';
+import LoadingSpinner from '../common/LoadingSpinner';
 import LeaderboardInfo from './LeaderboardInfo';
 import LeaderboardTable from './LeaderboardTable';
+import useWindowSize from './useWindowSize';
 
 /**
  * LeaderboardPage component displays the top pools based on weighted score
@@ -82,7 +80,7 @@ const LeaderboardPage = () => {
   return (
     <div style={containerStyle}>
       {/* Particle Background */}
-      <ParticleBackground zIndex={0} />
+      {/* <ParticleBackground zIndex={0} /> */}
       
       {/* Main content */}
       <div style={contentStyle}>

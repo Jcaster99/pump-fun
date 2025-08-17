@@ -1,12 +1,11 @@
+import { ChevronRight, Coins, FileText, Gavel, HelpCircle, Info, MessageCircle, Shield } from 'lucide-react';
 import React, { useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
-import { FileText, Info, HelpCircle, Coins, Gavel, Shield, MessageCircle, ChevronRight } from 'lucide-react';
-import DocsMainContent from '../components/docs/DocsMainContent';
-import DocsUserGuide from '../components/docs/DocsUserGuide';
 import DocsFaq from '../components/docs/DocsFaq';
 import DocsLegal from '../components/docs/DocsLegal';
+import DocsMainContent from '../components/docs/DocsMainContent';
 import DocsPrivacy from '../components/docs/DocsPrivacy';
-import ParticleBackground from '../components/common/ParticleBackground';
+import DocsUserGuide from '../components/docs/DocsUserGuide';
+import { useTheme } from '../context/ThemeContext';
 
 const DocsPage = () => {
   const { theme, darkMode } = useTheme();
@@ -110,7 +109,7 @@ const DocsPage = () => {
       overflow: 'hidden'
     }}>
       {/* Tło z cząsteczkami */}
-      <ParticleBackground zIndex={0} />
+      {/* <ParticleBackground zIndex={0} /> */}
       
       {/* Main content */}
       <div style={{ 

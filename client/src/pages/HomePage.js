@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import TrendingPools from '../components/pools/TrendingPools';
-import PoolsTicker from '../components/pools/PoolsTicker';
-import { useTheme } from '../context/ThemeContext';
+import React, { useEffect, useState } from 'react';
 import { fetchPools, fetchTotalVolume } from '../api/poolsApi';
-import { Database, BarChart2 } from 'lucide-react';
-import ParticleBackground from '../components/common/ParticleBackground';
+import PoolsTicker from '../components/pools/PoolsTicker';
+import TrendingPools from '../components/pools/TrendingPools';
+import { useTheme } from '../context/ThemeContext';
 
 const HomePage = () => {
-  const { theme, darkMode } = useTheme();
   const [totalPools, setTotalPools] = useState(0);
   const [totalVolume, setTotalVolume] = useState(0);
   const [, setIsMobile] = useState(false);
@@ -64,29 +61,27 @@ const HomePage = () => {
       position: 'relative',
       width: '100%',
       minHeight: '100vh',
-      overflow: 'hidden'
+      overflow: 'hidden',
     }}>
-      {/* Tło z cząsteczkami */}
-      <ParticleBackground zIndex={0} />
       
       {/* Main content */}
       <div style={{
+        zIndex: 5,
         position: 'relative',
-        zIndex: 5
       }}>
         {/* Pools Ticker */}
         <PoolsTicker />
         
         {/* Stats Counters */}
-        <div style={{
+        {/* <div style={{
+          gap: '12px',
           display: 'flex',
+          flexWrap: 'wrap',
+          margin: '16px auto',
           alignItems: 'center',
           justifyContent: 'center',
-          margin: '16px auto',
-          gap: '12px',
-          flexWrap: 'wrap'
         }}>
-          {/* Total Pools Counter */}
+          Total Pools Counter
           <div style={{
             display: 'flex',
             alignItems: 'center',
@@ -117,7 +112,7 @@ const HomePage = () => {
             </div>
           </div>
           
-          {/* 24h Volume Counter */}
+          24h Volume Counter
           <div style={{
             display: 'flex',
             alignItems: 'center',
@@ -147,7 +142,7 @@ const HomePage = () => {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
         
         {/* Trending Pools Section */}
         <TrendingPools />

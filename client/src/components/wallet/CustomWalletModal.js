@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../../context/ThemeContext';
-import { Copy, X, LogOut, Check } from 'lucide-react';
+import { Copy, X, Check } from 'lucide-react';
 
 const CustomWalletModal = ({ 
   isOpen, 
@@ -16,7 +16,7 @@ const CustomWalletModal = ({
   const [animationState, setAnimationState] = useState('closed'); // 'closed', 'opening', 'open', 'closing'
   
   // Use the appropriate accent color based on theme mode
-  const accentColor = darkMode ? theme.accent.primary : theme.accent.secondary;
+  const accentColor = theme.accent.secondary;
   
   // Handle opening and closing animations
   useEffect(() => {
@@ -71,8 +71,8 @@ const CustomWalletModal = ({
   
   const modalStyle = {
     backgroundColor: theme.bg.card,
-    borderRadius: '24px',
-    maxWidth: '360px',
+    borderRadius: '12px',
+    maxWidth: '440px',
     width: '100%',
     position: 'relative',
     boxShadow: '0 10px 35px rgba(0, 0, 0, 0.25)',
@@ -102,26 +102,23 @@ const CustomWalletModal = ({
             justifyContent: 'space-between',
             alignItems: 'center',
             padding: '16px 20px',
-            borderBottom: `1px solid ${theme.border}`,
-            background: darkMode 
-              ? `linear-gradient(135deg, ${theme.bg.card}, rgba(${parseInt(theme.accent.primary.slice(1, 3), 16)}, ${parseInt(theme.accent.primary.slice(3, 5), 16)}, ${parseInt(theme.accent.primary.slice(5, 7), 16)}, 0.05))`
-              : `linear-gradient(135deg, ${theme.bg.card}, rgba(${parseInt(theme.accent.secondary.slice(1, 3), 16)}, ${parseInt(theme.accent.secondary.slice(3, 5), 16)}, ${parseInt(theme.accent.secondary.slice(5, 7), 16)}, 0.05))`,
+            background: theme.bg.card,
           }}
         >
           <h3 style={{ 
             margin: 0, 
             fontSize: '20px', 
             fontWeight: '600',
-            background: `linear-gradient(90deg, ${accentColor}, ${darkMode ? '#fff' : '#000'})`,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            animation: 'gradientShift 3s ease infinite',
+            color: theme.text.primary,
+            // background: theme.text.primary,
+            // WebkitBackgroundClip: 'text',
+            // WebkitTextFillColor: 'transparent'
           }}>Account</h3>
           <button
             onClick={handleClose}
             style={{
               background: 'transparent',
-              border: 'none',
+              border: `1px solid ${theme.border}`,
               color: theme.text.secondary,
               cursor: 'pointer',
               padding: '8px',
@@ -150,6 +147,7 @@ const CustomWalletModal = ({
               margin: '0 auto 16px',
               border: `2px solid ${accentColor}`,
               position: 'relative',
+              backgroundColor: theme.bg.panel,
               transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
               transform: `scale(${animationState === 'opening' ? 0.9 : 1})`,
               boxShadow: `0 0 15px rgba(${parseInt(accentColor.slice(1, 3), 16)}, ${parseInt(accentColor.slice(3, 5), 16)}, ${parseInt(accentColor.slice(5, 7), 16)}, 0.3)`,
@@ -157,12 +155,12 @@ const CustomWalletModal = ({
             className="avatar-container"
           >
             <img
-              src="/pfpzer0.png"
+              src="/slop-avatar.png"
               alt="Profile"
               style={{ 
                 width: '100%', 
                 height: '100%', 
-                objectFit: 'cover',
+                objectFit: 'contain',
                 transition: 'transform 0.5s ease',
               }}
               className="avatar-image"
@@ -170,7 +168,7 @@ const CustomWalletModal = ({
           </div>
           
           {/* Username */}
-          {username && (
+          {/* {username && (
             <div
               style={{
                 margin: '8px 0 12px',
@@ -186,17 +184,16 @@ const CustomWalletModal = ({
             >
               @{username}
             </div>
-          )}
+          )} */}
           
           {/* Address */}
           <div
             style={{
               margin: '12px 0 0',
               padding: '10px 16px',
-              backgroundColor: darkMode ? 
-                `rgba(${parseInt(theme.bg.panel.slice(1, 3), 16)}, ${parseInt(theme.bg.panel.slice(3, 5), 16)}, ${parseInt(theme.bg.panel.slice(5, 7), 16)}, 0.7)` : 
-                theme.bg.panel,
-              borderRadius: '12px',
+              backgroundColor: theme.bg.card,
+              borderRadius: '8px',
+              border: `1px solid ${theme.border}`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -205,7 +202,6 @@ const CustomWalletModal = ({
               opacity: animationState === 'opening' ? 0 : 1,
               transitionDelay: '0.1s',
               backdropFilter: 'blur(5px)',
-              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.08)',
             }}
             className="address-container"
           >
@@ -217,7 +213,7 @@ const CustomWalletModal = ({
               style={{
                 background: 'transparent',
                 border: 'none',
-                color: copySuccess ? accentColor : theme.text.secondary,
+                color:  accentColor,
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
@@ -236,18 +232,17 @@ const CustomWalletModal = ({
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              margin: '16px 0',
+              marginTop: '16px',
               padding: '12px 16px',
-              backgroundColor: darkMode ? 
-                `rgba(${parseInt(theme.bg.panel.slice(1, 3), 16)}, ${parseInt(theme.bg.panel.slice(3, 5), 16)}, ${parseInt(theme.bg.panel.slice(5, 7), 16)}, 0.7)` : 
-                theme.bg.panel,
-              borderRadius: '12px',
+              backgroundColor: theme.bg.card,
+              border: `1px solid ${theme.border}`,
+              borderRadius: '8px',
               transition: 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease, box-shadow 0.3s ease',
               transform: `translateY(${animationState === 'opening' ? '10px' : '0'})`,
               opacity: animationState === 'opening' ? 0 : 1,
               transitionDelay: '0.2s',
               backdropFilter: 'blur(5px)',
-              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.08)',
+              // boxShadow: '0 2px 10px rgba(0, 0, 0, 0.08)',
             }}
             className="network-container"
           >
@@ -263,7 +258,7 @@ const CustomWalletModal = ({
               Network
             </div>
             <div style={{ 
-              fontWeight: '600', 
+              fontWeight: '400', 
               display: 'flex', 
               alignItems: 'center', 
               gap: '8px',
@@ -271,12 +266,11 @@ const CustomWalletModal = ({
             }}>
               <div className="network-icon-container">
                 <img 
-                  src="/user.png" 
+                  src="/pink-og-logo.svg" 
                   alt="0G" 
                   style={{ 
-                    width: '40px', 
-                    height: '40px', 
-                    borderRadius: '50%',
+                    width: '50px', 
+                    height: '24px', 
                     transition: 'transform 0.3s ease',
                   }}
                   className="network-icon"
@@ -304,11 +298,11 @@ const CustomWalletModal = ({
               }, 300);
             }}
             style={{
-              width: '100%',
+              width: 'fit-content',
               padding: '14px',
-              background: 'linear-gradient(90deg, #FF5757, #FF8A8A)',
-              color: 'white',
-              border: 'none',
+              background: theme.bg.card,
+              color: theme.text.primary,
+              border: `1px solid ${theme.border}`,
               borderRadius: '25px',
               fontSize: '16px',
               fontWeight: '600',
@@ -317,10 +311,10 @@ const CustomWalletModal = ({
               alignItems: 'center',
               justifyContent: 'center',
               gap: '10px',
-              boxShadow: '0 4px 15px rgba(255, 87, 87, 0.3)',
               transition: 'all 0.3s ease',
               position: 'relative',
               overflow: 'hidden',
+              marginLeft: 'auto',
             }}
             className="disconnect-button"
           >
@@ -339,10 +333,10 @@ const CustomWalletModal = ({
             bottom: '20px',
             left: '50%',
             transform: 'translateX(-50%)',
-            backgroundColor: theme.accent.primary,
+            backgroundColor: theme.accent.secondary,
             color: 'white',
             padding: '10px 18px',
-            borderRadius: '12px',
+            borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
             gap: '8px',

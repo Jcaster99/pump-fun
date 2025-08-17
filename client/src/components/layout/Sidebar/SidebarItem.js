@@ -11,8 +11,8 @@ const SidebarItem = ({ icon, label, active, theme, to, onClick }) => {
   // If active prop is not provided, determine from current route
   const isActive = active !== undefined ? active : location.pathname === to;
   
-  const activeColor = darkMode ? theme.accent.primary : theme.accent.secondary;
-  const activeBorderColor = darkMode ? theme.accent.primary : theme.accent.secondary;
+  const activeColor = theme.accent.secondary;
+  // const activeBorderColor = darkMode ? theme.accent.primary : theme.accent.secondary;
   
   const itemStyle = {
     display: 'flex',
@@ -21,10 +21,11 @@ const SidebarItem = ({ icon, label, active, theme, to, onClick }) => {
     cursor: 'pointer',
     backgroundColor: isActive ? theme.bg.panel : 'transparent',
     color: isActive ? activeColor : theme.text.secondary,
-    borderLeft: isActive ? `3px solid ${activeBorderColor}` : '3px solid transparent',
     transition: 'all 0.2s ease',
     textDecoration: 'none',
-    margin: '2px 0'
+    margin: '2px 0',
+    borderRadius: '1000px',
+    fontWeight: '500'
   };
   
   const handleClick = (e) => {

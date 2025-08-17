@@ -62,7 +62,7 @@ const FirstTimeSignIn = ({
     }}>
       <div style={{
         backgroundColor: theme.bg.card,
-        borderRadius: '24px',
+        borderRadius: '12px',
         boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
         maxWidth: '450px',
         width: '100%',
@@ -91,14 +91,14 @@ const FirstTimeSignIn = ({
             alignItems: 'center'
           }}>
             <div style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '50%',
+              width: '52px',
+              height: '52px',
+              borderRadius: '4px',
               overflow: 'hidden',
               marginRight: '16px'
             }}>
               <img 
-                src="/pfpzer0.png" 
+                src="/slop-img-logo.svg" 
                 alt="Profile" 
                 style={{
                   width: '100%',
@@ -128,9 +128,9 @@ const FirstTimeSignIn = ({
                 type="text"
                 style={{
                   width: '100%',
-                  backgroundColor: theme.bg.panel,
+                  backgroundColor: theme.bg.card,
                   border: `1px solid ${usernameError ? '#ff4d4f' : theme.border}`,
-                  borderRadius: '12px',
+                  borderRadius: '8px',
                   padding: '12px 16px',
                   color: theme.text.primary,
                   outline: 'none',
@@ -192,10 +192,10 @@ const FirstTimeSignIn = ({
                 type="button"
                 style={{
                   padding: '10px 16px',
-                  borderRadius: '12px',
+                  borderRadius: '1000px',
                   backgroundColor: 'transparent',
                   color: theme.text.secondary,
-                  border: 'none',
+                  border: `1px solid ${theme.border}`,
                   cursor: isLoading ? 'not-allowed' : 'pointer',
                   fontSize: '0.95rem',
                   opacity: isLoading ? 0.7 : 1
@@ -209,10 +209,8 @@ const FirstTimeSignIn = ({
                 type="submit"
                 style={{
                   padding: '10px 24px',
-                  borderRadius: '12px',
-                  background: darkMode
-                    ? `linear-gradient(90deg, ${theme.accent.primary}, ${theme.accent.secondary})`
-                    : `linear-gradient(90deg, ${theme.accent.primary}, ${theme.accent.secondary})`,
+                  borderRadius: '1000px',
+                  background: theme.accent.secondary,
                   color: 'white',
                   border: 'none',
                   cursor: isLoading ? 'not-allowed' : 'pointer',

@@ -22,7 +22,7 @@
 
 .ticker-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: 10px;
   width: 100%;
@@ -62,9 +62,10 @@
 .ticker-item {
   display: flex;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 16px;
   padding: 6px 12px;
   margin-right: 12px;
+  margin-bottom: 4px;
   cursor: pointer;
   min-width: 180px;
   max-width: 240px;
@@ -78,7 +79,7 @@
 }
 
 .ticker-item.laser-border::before {
-  border-radius: 8px;
+  border-radius: 16px;
 }
 
 .ticker-item:hover {
@@ -123,8 +124,8 @@
 }
 
 .ticker-item-symbol {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

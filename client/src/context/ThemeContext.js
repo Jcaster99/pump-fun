@@ -44,18 +44,20 @@ export const ThemeProvider = ({ children }) => {
   const theme = {
     bg: {
       main: darkMode ? '#0A0A0A' : '#FFFFFF',
-      card: darkMode ? '#121218' : '#F7F7F9',
-      panel: darkMode ? '#18181F' : '#EEEEF3',
+      card: darkMode ? '#0A0A0A' : '#FFFFFF',
+      panel: darkMode ? '#F464BA1A' : '#F464BA1A',
+      footer: darkMode ? '#141414' : '#F464BA',
     },
     text: {
-      primary: darkMode ? '#E6E6E6' : '#121212',
-      secondary: darkMode ? '#9999A5' : '#666670',
-      accent: '#00D2E9'
+      primary: darkMode ? '#F5F5F5' : '#131316',
+      secondary: darkMode ? '#F5F5F5' : "#575757",
+      accent: '#00D2E9',
+      tertiary: darkMode ? '#575757' : '#A5A5A5'
     },
-    border: darkMode ? '#232330' : '#DDDDE5',
+    border: darkMode ? '#141414' : '#F5F5F5',
     accent: {
       primary: '#00D2E9',
-      secondary: '#FF5CAA',
+      secondary: '#F464BA',
       tertiary: '#7F5AF0'
     }
   };

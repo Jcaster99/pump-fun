@@ -1,13 +1,12 @@
-import React from 'react';
-import { useTheme } from '../context/ThemeContext';
-import { useWallet } from '../hooks/useWallet';
-import { useNavigate } from '../context/NavigationContext';
-import ParticleBackground from '../components/common/ParticleBackground';
 import { AlertTriangle, Check } from 'lucide-react';
-import CreateTokenForm from './CreateTokenForm';
-import useNSFWDetection from '../hooks/useNSFWDetection';
-import useCreateToken from '../hooks/useCreateToken';
+import React from 'react';
 import TransactionOverlay from '../components/TokenCreation/TransactionOverlay';
+import { useNavigate } from '../context/NavigationContext';
+import { useTheme } from '../context/ThemeContext';
+import useCreateToken from '../hooks/useCreateToken';
+import useNSFWDetection from '../hooks/useNSFWDetection';
+import { useWallet } from '../hooks/useWallet';
+import CreateTokenForm from './CreateTokenForm';
 
 // Pobieramy wartości z zmiennych środowiskowych
 const TREASURY_ADDRESS = process.env.REACT_APP_TREASURY_ADDRESS || "0x0f13e85B575964B8b4b77E37d43A6aE9E354e94C";
@@ -60,7 +59,7 @@ const CreateToken = () => {
       overflowX: 'hidden',
     }}>
       {/* Particle Background */}
-      <ParticleBackground />
+      {/* <ParticleBackground /> */}
 
       {/* Transaction Progress Overlay */}
       <TransactionOverlay 

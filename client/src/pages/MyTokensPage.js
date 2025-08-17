@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { Plus } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import LoadingSpinner from '../components/common/LoadingSpinner';
+import PoolCard from '../components/pools/PoolCard';
+import { useNavigate } from '../context/NavigationContext';
 import { useTheme } from '../context/ThemeContext';
 import { useWallet } from '../hooks/useWallet';
-import { useNavigate } from '../context/NavigationContext';
-import PoolCard from '../components/pools/PoolCard';
-import LoadingSpinner from '../components/common/LoadingSpinner';
-import ParticleBackground from '../components/common/ParticleBackground';
-import { Plus } from 'lucide-react';
 
 const MyTokensPage = () => {
   const { theme, darkMode } = useTheme();
@@ -125,7 +124,7 @@ const MyTokensPage = () => {
       overflow: 'hidden'
     }}>
       {/* Tło z cząsteczkami */}
-      <ParticleBackground zIndex={1} />
+      {/* <ParticleBackground zIndex={1} /> */}
       
       {/* Main content */}
       <div style={{
