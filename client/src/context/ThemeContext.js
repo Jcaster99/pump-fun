@@ -47,6 +47,7 @@ export const ThemeProvider = ({ children }) => {
       card: darkMode ? '#0A0A0A' : '#FFFFFF',
       panel: darkMode ? '#F464BA1A' : '#F464BA1A',
       footer: darkMode ? '#141414' : '#F464BA',
+      modal: darkMode ? '#15141B' : '#FDF7FD',
     },
     text: {
       primary: darkMode ? '#F5F5F5' : '#131316',

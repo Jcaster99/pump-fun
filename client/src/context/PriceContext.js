@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { API_URL } from '../utils/apiConfig';
 
 // Tworzenie kontekstu

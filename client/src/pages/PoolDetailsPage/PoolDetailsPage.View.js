@@ -1,14 +1,14 @@
+import { ExternalLink } from 'lucide-react';
 import React from 'react';
+import LoadingSpinner from '../../components/common/LoadingSpinner';
+import GraduationModal from '../../components/pools/GraduationModal';
+import PoolActionPanel from '../../components/pools/PoolActionPanel';
 import PoolDetailHeader from '../../components/pools/PoolDetailHeader';
 import PoolPriceChart from '../../components/pools/PoolPriceChart';
-import PoolActionPanel from '../../components/pools/PoolActionPanel';
-import LoadingSpinner from '../../components/common/LoadingSpinner';
-import TopHoldersList from '../../components/pools/TopHoldersList';
+import PoolRewards from '../../components/pools/PoolRewards';
 import PoolTransactionHistory from '../../components/pools/PoolTransactionHistory';
 import Socials from '../../components/pools/Socials';
-import PoolRewards from '../../components/pools/PoolRewards';
-import GraduationModal from '../../components/pools/GraduationModal';
-import { ExternalLink } from 'lucide-react';
+import TopHoldersList from '../../components/pools/TopHoldersList';
 
 const PoolDetailsPageView = ({
   pool,

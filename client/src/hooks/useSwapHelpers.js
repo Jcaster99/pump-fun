@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 
 /**
  * Hook providing helper functions for swap calculations and formatting

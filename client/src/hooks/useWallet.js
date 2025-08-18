@@ -1,8 +1,8 @@
-import { useAccount, useConnect, useDisconnect, useBalance, useWalletClient, usePublicClient, useSignMessage } from 'wagmi';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
-import { useState, useEffect } from 'react';
-import { loginUser, registerUser, checkWalletExists } from '../api/authApi';
-import { getUser, isAuthenticated, getToken, logout } from '../utils/authService';
+import { useEffect, useState } from 'react';
+import { useAccount, useBalance, useDisconnect, usePublicClient, useSignMessage, useWalletClient } from 'wagmi';
+import { checkWalletExists, loginUser, registerUser } from '../api/authApi';
+import { getToken, getUser, logout } from '../utils/authService';
 
 /**
  * Custom hook to access wallet functionality throughout the app

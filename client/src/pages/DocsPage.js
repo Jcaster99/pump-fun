@@ -1,4 +1,4 @@
-import { ChevronRight, Coins, FileText, Gavel, HelpCircle, Info, MessageCircle, Shield } from 'lucide-react';
+import { Coins, FileText, Gavel, HelpCircle, Info, MessageCircle, Shield } from 'lucide-react';
 import React, { useState } from 'react';
 import DocsFaq from '../components/docs/DocsFaq';
 import DocsLegal from '../components/docs/DocsLegal';
@@ -97,10 +97,7 @@ const DocsPage = () => {
         return <DocsMainContent />;
     }
   };
-
-  // Use the appropriate accent color based on theme mode
-  const accentColor = darkMode ? theme.accent.primary : theme.accent.secondary;
-
+  
   return (
     <div style={{ 
       position: 'relative',
@@ -108,10 +105,6 @@ const DocsPage = () => {
       minHeight: '100vh',
       overflow: 'hidden'
     }}>
-      {/* Tło z cząsteczkami */}
-      {/* <ParticleBackground zIndex={0} /> */}
-      
-      {/* Main content */}
       <div style={{ 
         display: 'flex',
         flexDirection: 'column',
@@ -138,23 +131,17 @@ const DocsPage = () => {
                   display: 'flex',
                   alignItems: 'center',
                   padding: '8px 12px',
-                  backgroundColor: activeSection === item.id 
-                    ? (darkMode ? 'rgba(0, 210, 233, 0.1)' : 'rgba(255, 92, 170, 0.05)')
-                    : 'transparent',
-                  border: `1px solid ${activeSection === item.id ? accentColor : theme.border}`,
-                  borderRadius: '6px',
-                  color: activeSection === item.id ? accentColor : theme.text.primary,
+                  border: 'none',
+                  borderBottom: activeSection === item.id ? `2px solid ${theme.accent.secondary}` : 'none',
+                  backgroundColor: 'transparent',
+                  color: activeSection === item.id ? theme.accent.secondary : theme.text.primary,
                   fontSize: '14px',
-                  fontWeight: activeSection === item.id ? '500' : '400',
+                  fontWeight: 500,
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
                 }}
               >
-                <span style={{ marginRight: '8px', opacity: 0.9 }}>{item.icon}</span>
                 <span>{item.label}</span>
-                {activeSection === item.id && (
-                  <ChevronRight size={14} style={{ marginLeft: '6px' }} />
-                )}
               </button>
             ))
           )}

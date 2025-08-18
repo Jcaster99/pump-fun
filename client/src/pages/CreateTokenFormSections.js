@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Edit, Plus, ImageIcon, X, Check, Sparkles, DollarSign, AlertTriangle, Link } from 'lucide-react';
+import { AlertTriangle, Edit, ImageIcon, Link, Plus, Sparkles } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 
 export const WalletNotConnectedView = ({ 
@@ -58,13 +58,14 @@ export const WalletNotConnectedView = ({
           animation: 'pulse 2s infinite'
         }}>
           <img 
-            src="/zer02.gif" 
+            src="/slop-img-logo.svg" 
             alt="Connect Wallet"
-            onError={(e) => e.target.src = '/zer03.gif'} 
+            onError={(e) => e.target.src = '/slop-img-logo.svg'} 
             style={{
               width: '100%',
               height: '100%',
-              objectFit: 'cover'
+              objectFit: 'contain',
+              padding: '10px'
             }}
           />
         </div>
@@ -153,11 +154,11 @@ export const TokenDetailsSection = ({
   return (
     <div className="form-section" style={sectionStyle}>
       <h3 style={headingStyle}>
-        <Sparkles size={22} color={darkMode ? theme.accent.primary : theme.accent.secondary} />
+        {/* <Sparkles size={22} color={darkMode ? theme.accent.primary : theme.accent.secondary} /> */}
         Token Details
       </h3>
 
-      <div style={{ marginBottom: '28px' }}>
+      <div style={{ marginBottom: '16px' }}>
         <label style={labelStyle}>
           Token Name *
         </label>
@@ -196,7 +197,7 @@ export const TokenDetailsSection = ({
         )}
       </div>
 
-      <div style={{ marginBottom: '28px' }}>
+      <div style={{ marginBottom: '16px' }}>
         <label style={labelStyle}>
           Symbol *
         </label>
@@ -294,11 +295,11 @@ export const SocialMediaSection = ({
   return (
     <div className="form-section" style={sectionStyle}>
       <h3 style={headingStyle}>
-        <Link size={22} color={darkMode ? theme.accent.primary : theme.accent.secondary} />
+        {/* <Link size={22} color={darkMode ? theme.accent.primary : theme.accent.secondary} /> */}
         Links (Optional)
       </h3>
 
-      <div style={{ marginBottom: '28px' }}>
+      <div style={{ marginBottom: '16px' }}>
         <label style={labelStyle}>
           project username
         </label>
@@ -397,13 +398,14 @@ export const TokenImageSection = ({
   return (
     <div className="form-section" style={{ ...sectionStyle, marginBottom: '32px', position: 'relative' }}>
       <h3 style={headingStyle}>
-        <ImageIcon size={22} color={darkMode ? theme.accent.primary : theme.accent.secondary} />
+        {/* <ImageIcon size={22} color={darkMode ? theme.accent.primary : theme.accent.secondary} /> */}
         Token Image
       </h3>
       
       <div style={{
         display: 'flex',
-        flexDirection: 'column',
+        // flexDirection: 'column',
+        gap: 20,
         alignItems: 'center',
         width: '100%',
       }}>
@@ -411,14 +413,14 @@ export const TokenImageSection = ({
           width: '180px',
           height: '180px',
           borderRadius: '50%',
-          backgroundColor: darkMode ? 'rgba(15, 20, 30, 0.5)' : 'rgba(240, 240, 245, 0.8)',
+          backgroundColor: theme.bg.modal,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           marginBottom: '24px',
           overflow: 'hidden',
           position: 'relative',
-          border: `2px dashed ${darkMode ? 'rgba(60, 75, 95, 0.3)' : 'rgba(200, 210, 225, 0.9)'}`,
+          border: `2px dashed ${theme.accent.secondary}`,
           transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
         }}>
           {imagePreview ? (
@@ -437,9 +439,9 @@ export const TokenImageSection = ({
               flexDirection: 'column',
               alignItems: 'center',
               padding: '20px',
-              color: darkMode ? 'rgba(200, 210, 225, 0.6)' : 'rgba(100, 110, 140, 0.6)',
+              color: theme.text.tertiary,
             }}>
-              <Plus size={32} style={{ marginBottom: '8px' }} />
+              <Plus size={32} style={{ marginBottom: '8px', padding: 8, borderRadius: '50%', color: theme.text.primary, backgroundColor: theme.bg.card, border: `1px solid ${theme.border}` }} />
               <span style={{
                 fontSize: '14px',
                 textAlign: 'center',
@@ -476,13 +478,13 @@ export const TokenImageSection = ({
             }
           }}
           style={{
-            backgroundColor: darkMode ? 'rgba(60, 75, 95, 0.3)' : 'rgba(240, 240, 245, 0.8)',
-            color: darkMode ? 'rgba(200, 210, 225, 0.8)' : 'rgba(60, 70, 90, 0.8)',
-            border: `1px solid ${darkMode ? 'rgba(60, 75, 95, 0.25)' : 'rgba(200, 210, 225, 0.8)'}`,
-            borderRadius: '12px',
-            padding: '10px 18px',
+            backgroundColor: theme.bg.card,
+            color: theme.text.primary,
+            border: `1px solid ${theme.border}`,
+            borderRadius: '1000px',
+            padding: '10px 16px',
             cursor: (loading || checking) ? 'not-allowed' : 'pointer',
-            fontSize: '14px',
+            fontSize: '16px',
             fontWeight: '500',
             display: 'flex',
             alignItems: 'center',
@@ -491,12 +493,10 @@ export const TokenImageSection = ({
           }}
           onMouseEnter={(e) => {
             if (!loading && !checking) {
-              e.currentTarget.style.backgroundColor = darkMode ? 'rgba(70, 85, 105, 0.4)' : 'rgba(230, 230, 240, 0.9)';
               e.currentTarget.style.transform = 'translateY(-1px)';
             }
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = darkMode ? 'rgba(60, 75, 95, 0.3)' : 'rgba(240, 240, 245, 0.8)';
             e.currentTarget.style.transform = 'translateY(0)';
           }}
           disabled={loading || checking}
@@ -569,9 +569,8 @@ export const SubmitSection = ({
   return (
     <div style={{
       display: 'flex',
-      justifyContent: 'center',
-      marginTop: '20px',
-      padding: '20px 0 10px',
+      justifyContent: 'flex-end',
+      marginTop: '32px',
     }}>
       <button
         type="submit"
@@ -580,17 +579,11 @@ export const SubmitSection = ({
         onMouseEnter={(e) => {
           if (!loading) {
             e.currentTarget.style.transform = 'translateY(-3px)';
-            e.currentTarget.style.boxShadow = darkMode 
-              ? '0 15px 30px rgba(0, 0, 0, 0.4), 0 8px 16px rgba(0, 210, 233, 0.3)' 
-              : '0 15px 30px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(255, 92, 170, 0.25)';
           }
         }}
         onMouseLeave={(e) => {
           if (!loading) {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = darkMode 
-              ? '0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 12px rgba(0, 210, 233, 0.2)' 
-              : '0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(255, 92, 170, 0.15)';
           }
         }}
       >
@@ -601,8 +594,7 @@ export const SubmitSection = ({
           </>
         ) : (
           <>
-            <Sparkles size={22} />
-            Create Token for {LISTING_FEE} 0G
+            Create token for {LISTING_FEE} 0G
           </>
         )}
       </button>

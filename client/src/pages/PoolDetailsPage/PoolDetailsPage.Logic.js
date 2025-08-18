@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchPoolByAddress } from '../../api/poolsApi';
-import { useTheme } from '../../context/ThemeContext';
-import PoolDetailsPageView from './PoolDetailsPage.View';
 import { usePoolDetailsSocket } from '../../context/PoolDetailsSocketContext';
+import { useTheme } from '../../context/ThemeContext';
 import { useWallet } from '../../hooks/useWallet';
-import axios from 'axios';
+import PoolDetailsPageView from './PoolDetailsPage.View';
 
 // Style for transition animations
 const tabContentAnimations = {

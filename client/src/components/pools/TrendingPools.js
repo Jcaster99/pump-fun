@@ -118,7 +118,6 @@ const TrendingPools = () => {
 					width: '186px',
 					zIndex: 10,
 					marginTop: '4px',
-					// boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
 					overflow: 'hidden',
 				}}
 			>
@@ -146,7 +145,6 @@ const TrendingPools = () => {
 							<span style={{ marginRight: '8px', opacity: 0 }}>✓</span>
 						)}
 						<span style={{ fontSize: '14px' }}>{option.label}</span>
-						{/* <span style={{ marginLeft: 'auto' }}>{option.icon}</span> */}
 					</div>
 				))}
 			</div>
@@ -164,11 +162,6 @@ const TrendingPools = () => {
 				}}
 			>
 				<div style={{ display: 'flex', alignItems: 'center' }}>
-					{/* {sortBy === 'change_24h' ? (
-						<ArrowUp size={20} color="#5FE388" /> // Green arrow for pumping
-					) : (
-						<TrendingUp size={20} color={accentColor} />
-					)} */}
 					<h2
 						style={{
 							fontSize: '30px',
@@ -208,13 +201,7 @@ const TrendingPools = () => {
 							textTransform: 'capitalize',
 						}}
 					>
-						{/* {sortBy === 'change_24h' ? (
-							<ArrowUp size={16} color="#5FE388" style={{ marginRight: '8px' }} />
-						) : (
-							<Flame size={16} color={accentColor} style={{ marginRight: '8px' }} />
-						)} */}
 						<span style={{ marginRight: '6px' }}>Sort: {currentSortOption.label}</span>
-						{/* <span style={{ marginRight: '6px' }}>{currentSortOption.icon}</span> */}
 						<ChevronDown size={14} color={showSortMenuBelow ? accentColor : theme.text.secondary} />
 					</button>
 
@@ -223,7 +210,6 @@ const TrendingPools = () => {
 			</div>
 
 			{/* Sort button below heading */}
-
 			{loading ? (
 				<div style={{ padding: '20px', textAlign: 'center', color: theme.text.secondary }}>
 					Loading newest tokens...

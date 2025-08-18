@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
-import * as nsfwjs from 'nsfwjs';
 import * as tf from '@tensorflow/tfjs';
+import * as nsfwjs from 'nsfwjs';
+import { useEffect, useRef, useState } from 'react';
 import logger from '../utils/logger';
 
 const useNSFWDetection = () => {

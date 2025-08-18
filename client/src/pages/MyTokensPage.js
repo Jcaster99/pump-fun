@@ -173,13 +173,14 @@ const MyTokensPage = () => {
                   : `2px solid ${theme.accent.secondary}`,
               }}>
                 <img 
-                  src="/zer02.gif" 
+                  src="/slop-img-logo.svg" 
                   alt="Connect Wallet"
-                  onError={(e) => e.target.src = '/zer03.gif'} 
+                  onError={(e) => e.target.src = '/slop-img-logo.svg'} 
                   style={{
                     width: '100%',
                     height: '100%',
-                    objectFit: 'cover'
+                    objectFit: 'contain',
+                    padding: '10px'
                   }}
                 />
               </div>

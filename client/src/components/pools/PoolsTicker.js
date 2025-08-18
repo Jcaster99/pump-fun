@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, Flame } from 'lucide-react'
+import { Stack } from '@mui/material'
 import React, { useEffect, useRef, useState } from 'react'
 import { fetchTopGravityPools } from '../../api/poolsApi'
 import { useNavigate } from '../../context/NavigationContext'
@@ -6,7 +6,6 @@ import { useTheme } from '../../context/ThemeContext'
 import '../../styles/leaderboard.css'
 import '../../styles/ticker.css'
 import { SearchComponent } from '../common/SearchComponent'
-import { Stack } from '@mui/material'
 
 const PoolsTicker = () => {
 	const { theme, darkMode, lasersEnabled } = useTheme()
@@ -293,38 +292,7 @@ const PoolsTicker = () => {
 				className="ticker-container"
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
-				// style={{ height: isSmallScreen ? '90px' : '100px' }}
 			>
-				{/* <div className="ticker-header">
-					<div className="ticker-title">
-          <Flame 
-            size={16} 
-            color={darkMode ? theme.accent.primary : "#FF71CD"}
-            style={{ 
-              marginRight: '6px',
-              verticalAlign: 'middle',
-              display: 'inline-block'
-            }} 
-          />
-          <span style={{ 
-            fontSize: '14px',
-            fontWeight: '600',
-            color: theme.text.primary
-          }}>
-            Trending
-          </span>
-        </div>
-					{isPaused && (
-						<div className="ticker-nav-buttons">
-							<button className="ticker-nav-button laser-border" onClick={handlePrevious}>
-								<ChevronLeft size={16} />
-							</button>
-							<button className="ticker-nav-button laser-border" onClick={handleNext}>
-								<ChevronRight size={16} />
-							</button>
-						</div>
-					)}
-				</div> */}
 				<div
 					className="ticker-wrapper"
 					ref={tickerRef}
@@ -485,7 +453,7 @@ const TickerItem = ({ pool, theme, darkMode, isSmallScreen, onClick }) => (
 								position: 'relative',
 								width: '60px',
 								height: isSmallScreen ? '4px' : '5px',
-								backgroundColor: darkMode ? '#2E2E3A' : '#e0e0e0',
+								backgroundColor: darkMode ? '#0F0F0F' : '#FCF2FC',
 								borderRadius: '2px',
 								overflow: 'hidden',
 							}}

@@ -335,12 +335,10 @@ const ConnectButtonInner = ({ showCustomModal, setShowCustomModal }) => {
   
   // Wspólny styl przycisków z gradientem
   const buttonStyle = {
-    background: darkMode 
-      ? `${theme.accent.secondary}` 
-      : `${theme.accent.secondary}`,
+    background: theme.accent.secondary,
     color: 'white',
     border: 'none',
-    borderRadius: '25px',
+    borderRadius: '1000px',
     padding: '12px 20px',
     cursor: 'pointer',
     fontWeight: '600',
