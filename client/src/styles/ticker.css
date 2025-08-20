@@ -68,7 +68,8 @@
   margin-bottom: 4px;
   cursor: pointer;
   min-width: 180px;
-  max-width: 240px;
+  max-width: 250px;
+  width: 250px;
   height: calc(100% - 2px);
   background-color: var(--bg-card);
   box-sizing: border-box;

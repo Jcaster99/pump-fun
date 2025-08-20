@@ -393,6 +393,19 @@ export const TokenImageSection = ({
   theme,
   darkMode
 }) => {
+
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   const fileInputRef = React.useRef(null);
   
   return (
@@ -404,7 +417,7 @@ export const TokenImageSection = ({
       
       <div style={{
         display: 'flex',
-        // flexDirection: 'column',
+        flexDirection: isMobile ? 'column' : 'row',
         gap: 20,
         alignItems: 'center',
         width: '100%',
@@ -417,7 +430,6 @@ export const TokenImageSection = ({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          marginBottom: '24px',
           overflow: 'hidden',
           position: 'relative',
           border: `2px dashed ${theme.accent.secondary}`,

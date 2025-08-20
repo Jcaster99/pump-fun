@@ -4,6 +4,7 @@ import { useTheme } from '../../context/ThemeContext'
 import { usePools } from '../../context/PoolContext'
 import PoolCard from './PoolCard'
 import Pagination from '../Pagination'
+import { Grid } from '@mui/material'
 
 const sortOptions = [
 	{ value: 'gravity_score', label: 'gravity score', icon: '🌟' },
@@ -13,26 +14,11 @@ const sortOptions = [
 	{ value: 'bonding_curve_percentage', label: 'progress to graduation', icon: '🎓' },
 ]
 
-// Create media query style
-const getGridColumns = () => {
-	const width = window.innerWidth
-	if (width < 768) {
-		return 'repeat(1, 1fr)' // Mobile - 1 column
-	} else if (width < 1024) {
-		return 'repeat(2, 1fr)' // Tablets - 2 columns
-	} else if (width < 1280) {
-		return 'repeat(3, 1fr)' // Small desktops - 3 columns
-	} else {
-		return 'repeat(4, 1fr)' // Medium and large desktops - 4 columns
-	}
-}
-
 const TrendingPools = () => {
 	const { darkMode, theme } = useTheme()
 	const { pools, loading, error, recentlyAddedPoolId, sortBy, changeSorting } = usePools()
 	const [showSortMenu, setShowSortMenu] = useState(false)
 	const [showSortMenuBelow, setShowSortMenuBelow] = useState(false)
-	const [gridColumns, setGridColumns] = useState(getGridColumns())
 	const sortMenuRef = useRef(null)
 	const sortMenuBelowRef = useRef(null)
 
@@ -40,7 +26,7 @@ const TrendingPools = () => {
 	const [currentPage, setCurrentPage] = useState(1)
 	const [itemsPerPage] = useState(30)
 
-	const accentColor = darkMode ? theme.accent.primary : theme.accent.secondary
+	const accentColor = theme.accent.secondary
 
 	// Oblicz całkowitą liczbę stron
 	const totalPages = useMemo(() => {
@@ -53,16 +39,6 @@ const TrendingPools = () => {
 		const endIndex = startIndex + itemsPerPage
 		return pools.slice(startIndex, endIndex)
 	}, [pools, currentPage, itemsPerPage])
-
-	// Adjust layout to screen width
-	useEffect(() => {
-		const handleResize = () => {
-			setGridColumns(getGridColumns())
-		}
-
-		window.addEventListener('resize', handleResize)
-		return () => window.removeEventListener('resize', handleResize)
-	}, [])
 
 	// Handle clicks outside the sort menus to close them
 	useEffect(() => {
@@ -158,7 +134,7 @@ const TrendingPools = () => {
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'space-between',
-					marginBottom: '20px',
+					marginBottom: '32px',
 				}}
 			>
 				<div style={{ display: 'flex', alignItems: 'center' }}>
@@ -189,7 +165,7 @@ const TrendingPools = () => {
 							height: '44px',
 							backgroundColor: darkMode ? '#050505' : '#ffffff',
 							color: theme.text.tertiary,
-							border: `1px solid ${darkMode ? "#141414" : '#F5F5F5'}`,
+							border: `1px solid ${darkMode ? '#141414' : '#F5F5F5'}`,
 							borderRadius: '1000px',
 							padding: '10px 16px',
 							fontSize: '16px',
@@ -218,24 +194,19 @@ const TrendingPools = () => {
 				<div style={{ padding: '20px', textAlign: 'center', color: '#FF5757' }}>{error}</div>
 			) : (
 				<>
-					<div
-						style={{
-							display: 'grid',
-							gridTemplateColumns: gridColumns,
-							gap: '16px',
-							width: '100%',
-						}}
-					>
+					<Grid container spacing={2}>
 						{paginatedPools.map((pool) => (
-							<PoolCard
-								key={`pool-${pool.id}-${pool.token_address || ''}`}
-								pool={pool}
-								theme={theme}
-								darkMode={darkMode}
-								isNew={pool.id === recentlyAddedPoolId}
-							/>
+							<Grid size={{ xs: 12, md: 6, lg: 3 }}>
+								<PoolCard
+									key={`pool-${pool.id}-${pool.token_address || ''}`}
+									pool={pool}
+									theme={theme}
+									darkMode={darkMode}
+									isNew={pool.id === recentlyAddedPoolId}
+								/>
+							</Grid>
 						))}
-					</div>
+					</Grid>
 
 					{/* Add Pagination component */}
 					{totalPages > 1 && (

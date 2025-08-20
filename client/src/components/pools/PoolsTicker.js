@@ -4,6 +4,7 @@ import { fetchTopGravityPools } from '../../api/poolsApi'
 import { useNavigate } from '../../context/NavigationContext'
 import { useTheme } from '../../context/ThemeContext'
 import '../../styles/leaderboard.css'
+import '../../styles/gradient-border.css'
 import '../../styles/ticker.css'
 import { SearchComponent } from '../common/SearchComponent'
 
@@ -283,7 +284,7 @@ const PoolsTicker = () => {
 
 	return (
 		<Stack spacing={2}>
-			<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+			<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
 				<h2 style={{ fontSize: '30px', fontWeight: '600' }}>Trending</h2>
 				<SearchComponent />
 			</div>
@@ -318,7 +319,7 @@ const PoolsTicker = () => {
 
 const TickerItem = ({ pool, theme, darkMode, isSmallScreen, onClick }) => (
 	<div
-		className="ticker-item"
+		className={`ticker-item ${darkMode ? 'gradient-ticker-border' : ''}`}
 		onClick={onClick}
 		style={{
 			cursor: 'pointer',
@@ -336,9 +337,24 @@ const TickerItem = ({ pool, theme, darkMode, isSmallScreen, onClick }) => (
 			overflow: 'hidden',
 		}}
 	>
+		{darkMode && (
+			<img
+				src="/sticker-item.png"
+				style={{
+					position: 'absolute',
+					top: '0',
+					right: '0',
+					width: '25%',
+					height: '40%',
+					borderRadius: 0,
+					objectFit: 'contain',
+					margin: 0,
+				}}
+			/>
+		)}
 		{/* Removed the shine effect div for king pools */}
 
-		{pool.isTopPool && (
+		{/* {pool.isTopPool && (
 			<div
 				style={{
 					position: 'absolute',
@@ -365,10 +381,11 @@ const TickerItem = ({ pool, theme, darkMode, isSmallScreen, onClick }) => (
 			>
 				KING
 			</div>
-		)}
+		)} */}
 
 		<img
-			src={pool.image_url}
+			// src={pool.image_url}
+			src="/slop-avatar.png"
 			alt={pool.name}
 			// className={pool.isTopPool ? 'laser-glow' : 'laser-glow'}
 			style={{
@@ -391,17 +408,6 @@ const TickerItem = ({ pool, theme, darkMode, isSmallScreen, onClick }) => (
 				>
 					{pool.symbol}
 				</span>
-				<img
-					src={pool.isTopPool ? '/king.png' : '/crown.png'}
-					alt={pool.isTopPool ? 'Top pool' : 'Pool'}
-					style={{
-						width: isSmallScreen ? '14px' : '16px',
-						height: 'auto',
-						marginLeft: '4px',
-						opacity: pool.isTopPool ? 1 : 0.9,
-						filter: pool.isTopPool ? 'none' : 'brightness(1.3) contrast(1.1)',
-					}}
-				/>
 			</div>
 			<div
 				className="ticker-item-details"
@@ -416,6 +422,7 @@ const TickerItem = ({ pool, theme, darkMode, isSmallScreen, onClick }) => (
 				<div
 					style={{
 						display: 'flex',
+						flex: 1,
 						flexDirection: 'column',
 						whiteSpace: 'nowrap',
 						overflow: 'hidden',
@@ -426,6 +433,7 @@ const TickerItem = ({ pool, theme, darkMode, isSmallScreen, onClick }) => (
 							color: theme.text.tertiary,
 							fontSize: isSmallScreen ? '12px' : '14px',
 							whiteSpace: 'nowrap',
+							lineHeight: 1.2,
 						}}
 					>
 						mc: {pool.market_cap_formatted}
@@ -451,11 +459,12 @@ const TickerItem = ({ pool, theme, darkMode, isSmallScreen, onClick }) => (
 						<div
 							style={{
 								position: 'relative',
-								width: '60px',
+								width: '100%',
 								height: isSmallScreen ? '4px' : '5px',
 								backgroundColor: darkMode ? '#0F0F0F' : '#FCF2FC',
 								borderRadius: '2px',
 								overflow: 'hidden',
+								flex: 1,
 							}}
 						>
 							<div

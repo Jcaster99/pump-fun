@@ -3,6 +3,7 @@ import { useNavigate as useRouterNavigate } from 'react-router-dom'
 import { useNavigate } from '../../context/NavigationContext'
 import '../../styles/animations.css'
 import '../../styles/leaderboard.css' // Import styli dla lasera
+import '../../styles/gradient-border.css'
 
 const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 	// Use our custom navigation
@@ -117,8 +118,7 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 	return (
 		<div
 			id={`pool-${pool.id}`}
-			// className={`pool-card shine-effect laser-border ${newPoolClass}`}
-			className={`pool-card shine-effect ${newPoolClass}`}
+			className={`pool-card ${darkMode && 'gradient-border'} ${newPoolClass}`}
 			onClick={handleCardClick}
 			style={{
 				backgroundColor: theme.bg.card,
@@ -148,14 +148,29 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 				willChange: isNew ? 'transform, box-shadow, filter' : 'transform',
 			}}
 		>
+			<img
+				src="/trending-pool-item.png"
+				style={{
+					position: 'absolute',
+					right: 1,
+					top: '2px',
+					width: '40%',
+					height: '20%',
+					objectFit: 'cover',
+					zIndex: 4,
+					opacity: darkMode ? 1 : 0,
+					transition: 'all 0.3s ease-in-out',
+				}}
+			/>
+
 			{/* Pasek bonding curve po prawej stronie */}
 			<div
 				style={{
 					position: 'absolute',
-					top: '0px',
-					right: '0px',
+					top: darkMode ? '4px' : '0px',
+					right: darkMode ? '2px' : '0px',
 					width: '12px',
-					height: '100%',
+					height: darkMode ? 'calc(100% - 6px)' : '100%',
 					backgroundColor: 'transparent',
 					borderTopRightRadius: '10px',
 					borderBottomRightRadius: '10px',
@@ -171,24 +186,24 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 						left: '0',
 						width: '100%',
 						height: '100%',
-						background: darkMode
-							? '#0F0F0F'
-							: '#FCF2FC',
-            border: 'none',
+						background: darkMode ? '#0F0F0F' : '#FCF2FC',
+						border: 'none',
 					}}
 				></div>
 
 				{/* Wypełnienie paska z gradientem */}
-				<div style={{
-          position: 'absolute',
-          bottom: '0',
-          left: '0',
-          width: '100%',
-          height: `${bondingCurvePercentage}%`,
-          background: theme.accent.secondary,
-          boxShadow: `0 0 10px ${theme.accent.secondary}50`,
-          transition: 'height 0.5s ease-out',
-        }}></div>
+				<div
+					style={{
+						position: 'absolute',
+						bottom: '0',
+						left: '0',
+						width: '100%',
+						height: `${bondingCurvePercentage}%`,
+						background: theme.accent.secondary,
+						boxShadow: `0 0 10px ${theme.accent.secondary}50`,
+						transition: 'height 0.5s ease-out',
+					}}
+				></div>
 
 				{/* Pozycja indykatora (GIF) - zmniejszona i dopasowana */}
 				{/* <div style={{
@@ -297,20 +312,21 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 						display: 'flex',
 						alignItems: 'flex-start',
 						gap: 12,
-            paddingBottom: 16,
-            borderBottom: '1px solid #F464BA1A',
+						paddingBottom: 16,
+						borderBottom: '1px solid #F464BA1A',
 					}}
 				>
 					<img
 						className={`pool-image ${isNew ? 'pulse-image' : ''}`}
-						src={pool.image_url}
+						// src={pool.image_url}
+						src="/slop-avatar.png"
 						alt={pool.name}
 						style={{
 							width: '64px',
 							height: '64px',
 							borderRadius: '8px',
 							objectFit: 'cover',
-              border: '1px solid #F464BA1A',
+							border: '1px solid #F464BA1A',
 						}}
 					/>
 
@@ -326,8 +342,8 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 								wordBreak: 'break-word',
 							}}
 						>
-							{pool.name} 
-              {/* ({pool.symbol}) */}
+							{pool.name}
+							{/* ({pool.symbol}) */}
 						</div>
 
 						{/* Created by - bez godziny dodania */}
@@ -421,7 +437,7 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 						</span>
 						<div
 							style={{
-                flex: 1,
+								flex: 1,
 								position: 'relative',
 								width: '100%',
 								height: '6px',
