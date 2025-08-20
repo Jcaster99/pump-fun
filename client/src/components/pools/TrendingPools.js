@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react'
-import { TrendingUp, ChevronDown, ArrowUp, ArrowDown, Flame } from 'lucide-react'
-import { useTheme } from '../../context/ThemeContext'
-import { usePools } from '../../context/PoolContext'
-import PoolCard from './PoolCard'
-import Pagination from '../Pagination'
 import { Grid } from '@mui/material'
+import { ChevronDown } from 'lucide-react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { usePools } from '../../context/PoolContext'
+import { useTheme } from '../../context/ThemeContext'
+import Pagination from '../Pagination'
+import PoolCard from './PoolCard'
 
 const sortOptions = [
 	{ value: 'gravity_score', label: 'gravity score', icon: '🌟' },
@@ -14,10 +14,10 @@ const sortOptions = [
 	{ value: 'bonding_curve_percentage', label: 'progress to graduation', icon: '🎓' },
 ]
 
-const TrendingPools = () => {
+export const TrendingPools = () => {
 	const { darkMode, theme } = useTheme()
 	const { pools, loading, error, recentlyAddedPoolId, sortBy, changeSorting } = usePools()
-	const [showSortMenu, setShowSortMenu] = useState(false)
+	const [, setShowSortMenu] = useState(false)
 	const [showSortMenuBelow, setShowSortMenuBelow] = useState(false)
 	const sortMenuRef = useRef(null)
 	const sortMenuBelowRef = useRef(null)
@@ -223,4 +223,3 @@ const TrendingPools = () => {
 	)
 }
 
-export default TrendingPools

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import PoolsTicker from '../components/pools/PoolsTicker';
-import TrendingPools from '../components/pools/TrendingPools';
+import {PoolsTicker} from '../components/pools/PoolsTicker';
+import {TrendingPools} from '../components/pools/TrendingPools';
 
 const HomePage = () => {
   const [, setIsMobile] = useState(false);
