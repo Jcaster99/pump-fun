@@ -23,7 +23,7 @@ const Header = ({ toggleSidebar, isMobile }) => {
 			style={{
 				display: 'flex',
 				flexDirection: 'column',
-				padding: '20px',
+				padding: '12px 20px',
 				gap: '10px',
 				position: 'relative',
 				zIndex: 10,
@@ -68,7 +68,7 @@ const Header = ({ toggleSidebar, isMobile }) => {
 					)}
 
 					{/* Transaction notification */}
-					<div
+					{/* <div
 						style={{
 							flex: 1,
 							display: 'flex',
@@ -80,14 +80,14 @@ const Header = ({ toggleSidebar, isMobile }) => {
 					>
 						<TokenCreationNotification />
 						<TransactionNotification />
-					</div>
+					</div> */}
 
 					<div
 						style={{
 							display: 'flex',
 							alignItems: 'center',
 							gap: 8,
-              marginRight: 8,
+							marginRight: 8,
 						}}
 					>
 						<StatsCounters />

@@ -25,6 +25,7 @@ export const TrendingPools = () => {
 	// Paginacja
 	const [currentPage, setCurrentPage] = useState(1)
 	const [itemsPerPage] = useState(30)
+	const sortRef = useRef(null)
 
 	const accentColor = theme.accent.secondary
 
@@ -90,10 +91,12 @@ export const TrendingPools = () => {
 					right: position === 'below' ? null : '0',
 					backgroundColor: theme.bg.card,
 					border: `1px solid ${theme.border}`,
-					borderRadius: '4px',
-					width: '186px',
+					borderRadius: '16px',
+					width: sortRef.current?.clientWidth,
+					minWidth: '186px',
 					zIndex: 10,
 					marginTop: '4px',
+					padding: '8px',
 					overflow: 'hidden',
 				}}
 			>
@@ -106,21 +109,23 @@ export const TrendingPools = () => {
 							cursor: 'pointer',
 							display: 'flex',
 							alignItems: 'center',
+							justifyContent: 'space-between',
+							borderRadius: '4px',
+							fontSize: '14px',
+							fontWeight: '500',
 							backgroundColor:
-								sortBy === option.value ? (darkMode ? '#303040' : '#f0f0f5') : 'transparent',
-							color: sortBy === option.value ? accentColor : theme.text.primary,
-							borderLeft:
-								sortBy === option.value ? `3px solid ${accentColor}` : '3px solid transparent',
+								sortBy === option.value ? theme.bg.panel : 'transparent',
+							color: sortBy === option.value ? theme.text.primary : '#767676',
 							transition: 'all 0.15s ease',
 							textTransform: 'capitalize',
 						}}
 					>
+						<span style={{ fontSize: '14px' }}>{option.label}</span>
 						{sortBy === option.value ? (
 							<span style={{ marginRight: '8px', color: accentColor }}>✓</span>
 						) : (
 							<span style={{ marginRight: '8px', opacity: 0 }}>✓</span>
 						)}
-						<span style={{ fontSize: '14px' }}>{option.label}</span>
 					</div>
 				))}
 			</div>
@@ -157,6 +162,7 @@ export const TrendingPools = () => {
 					ref={sortMenuBelowRef}
 				>
 					<button
+						ref={sortRef}
 						onClick={() => {
 							setShowSortMenuBelow(!showSortMenuBelow)
 							setShowSortMenu(false)
@@ -169,7 +175,7 @@ export const TrendingPools = () => {
 							borderRadius: '1000px',
 							padding: '10px 16px',
 							fontSize: '16px',
-							fontWeight: '500',
+							fontWeight: '400',
 							display: 'flex',
 							alignItems: 'center',
 							cursor: 'pointer',
@@ -177,8 +183,8 @@ export const TrendingPools = () => {
 							textTransform: 'capitalize',
 						}}
 					>
-						<span style={{ marginRight: '6px' }}>Sort: {currentSortOption.label}</span>
-						<ChevronDown size={14} color={showSortMenuBelow ? accentColor : theme.text.secondary} />
+						<span style={{ marginRight: '6px' }}>Sort {currentSortOption.label}</span>
+						<ChevronDown size={20} color={showSortMenuBelow ? accentColor : theme.text.secondary} />
 					</button>
 
 					{renderSortMenu(showSortMenuBelow, 'below')}

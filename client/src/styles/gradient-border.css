@@ -15,7 +15,6 @@
   bottom: 0;
   border-radius: inherit;
   padding: 2px;
-  /* border-top: 2.4px solid #F650B3; */
   background: linear-gradient(180deg, #F650B3 0%, rgba(246, 80, 179, 0.2) 100%);
   background-size: 300% 100%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -45,6 +44,34 @@
   border-radius: inherit;
   padding: 1px;
   /* border-top: 2.4px solid #F650B3; */
+  background: linear-gradient(180deg, #F650B3 0%, rgba(246, 80, 179, 0.2) 100%);
+  background-size: 300% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  will-change: background-position;
+  transform: translateZ(0);
+}
+
+
+.sidebar-border.active {
+  position: relative;
+  border: none !important;
+  z-index: 1;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.sidebar-border.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1000px;
+  padding: 2px;
   background: linear-gradient(180deg, #F650B3 0%, rgba(246, 80, 179, 0.2) 100%);
   background-size: 300% 100%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

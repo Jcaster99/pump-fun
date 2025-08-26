@@ -316,7 +316,7 @@ const CustomWalletModal = ({
               overflow: 'hidden',
               marginLeft: 'auto',
             }}
-            className="disconnect-button"
+            // className="disconnect-button"
           >
             <span className="button-content">
               Disconnect

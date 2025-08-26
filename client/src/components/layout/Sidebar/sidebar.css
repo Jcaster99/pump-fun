@@ -1,0 +1,33 @@
+.themeLightButton {
+  padding: 12px auto;
+  background: transparent;
+  border: none;
+  flex: 50%;
+  z-index: 1;
+  color: #131316;
+}
+
+.themeLightButton.active {
+  color: white;
+}
+
+.themeDarkButton {
+  padding: 12px auto;
+  background: transparent;
+  border: none;
+  flex: 50%;
+  z-index: 1;
+  color: #F5F5F5;
+}
+
+.themeDarkButton.active {
+  color: white;
+}
+
+.switcher-container {
+  height: 44px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}

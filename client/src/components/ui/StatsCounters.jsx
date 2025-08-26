@@ -1,11 +1,10 @@
-import { Database } from "lucide-react";
 import { useEffect, useState } from "react";
 import { fetchPools } from '../../api/poolsApi';
 import { useTheme } from "../../context/ThemeContext";
 
 export const StatsCounters = () => {
+  const { theme } = useTheme();
   const [totalPools, setTotalPools] = useState(0);
-  const { theme, darkMode } = useTheme();
   useEffect(() => {
     const getStats = async () => {
       try {
@@ -38,7 +37,6 @@ export const StatsCounters = () => {
         borderRadius: '1000px',
         border: `1px solid ${theme.border}`,
       }}>
-        {/* <Database size={16} color={theme.accent.primary} style={{ marginRight: '8px' }} /> */}
         <div style={{
           display: 'flex',
           alignItems: 'center'

@@ -255,7 +255,7 @@ export const TokenDetailsSection = ({
               padding: '18px',
               lineHeight: '1.6',
               transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
-              borderRadius: '16px',
+              borderRadius: '8px',
             }}
             onFocus={(e) => handleFocusWithCaret(e, 'description')}
             onBlur={(e) => handleBlurWithCaret(e, 'description')}

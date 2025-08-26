@@ -83,7 +83,7 @@ export const TickerItem = ({ pool, theme, darkMode, isSmallScreen, onClick }) =>
 				>
 					<span
 						style={{
-							color: theme.text.tertiary,
+							color: theme.accent.secondary,
 							fontSize: isSmallScreen ? '12px' : '14px',
 							whiteSpace: 'nowrap',
 							lineHeight: 1.2,

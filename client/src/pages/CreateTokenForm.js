@@ -90,9 +90,9 @@ const CreateTokenForm = ({
 
 		// Standardowe zachowanie onFocus
 		e.target.style.boxShadow = darkMode
-			? `0 0 0 2px rgba(${theme.accent.primary.replace('rgb(', '').replace(')', '')}, 0.3)`
+			? `0 0 0 2px rgba(${theme.accent.secondary.replace('rgb(', '').replace(')', '')}, 0.3)`
 			: `0 0 0 2px rgba(${theme.accent.secondary.replace('rgb(', '').replace(')', '')}, 0.3)`
-		e.target.style.borderColor = darkMode ? theme.accent.primary : theme.accent.secondary
+		e.target.style.borderColor = theme.accent.secondary
 		e.target.style.transform = 'translateY(-1px)'
 
 		// Śledzenie pozycji kursora przy każdym kliknięciu i wprowadzaniu tekstu
@@ -236,7 +236,7 @@ const CreateTokenForm = ({
 					Create token
 				</h1>
 				<p style={{ fontSize: 18, fontWeight: 400, color: theme.text.secondary, marginTop: 4 }}>
-					Let’s build your unique token together
+					Bring your best idea on-chain (or the most retarded)
 				</p>
 			</div>
 
@@ -295,8 +295,8 @@ const CreateTokenForm = ({
 					.form-section:hover {
 						transform: translateY(-2px);
 						box-shadow: ${darkMode
-											? '0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.05)'
-											: '0 10px 30px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.7)'};
+						? '0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.05)'
+						: '0 10px 30px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.7)'};
 					}
 					*/
 					/* Responsive styles */

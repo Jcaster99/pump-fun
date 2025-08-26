@@ -362,6 +362,7 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 									marginLeft: '4px',
 									color: theme.text.primary,
 									fontWeight: '500',
+									textTransform: 'uppercase',
 								}}
 							>
 								{pool.creator_name || 'Anonymous'}
@@ -433,7 +434,7 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 								fontSize: '14px',
 							}}
 						>
-							Ø,G:
+							MC:
 						</span>
 						<div
 							style={{
@@ -451,7 +452,8 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 									top: '0',
 									left: '0',
 									height: '100%',
-									width: `${gravityPercentage}%`,
+									// width: `${gravityPercentage}%`,
+									width: `${20}%`,
 									backgroundColor: theme.accent.secondary,
 									transition: 'width 0.3s ease-in-out',
 								}}
@@ -464,7 +466,7 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 								color: theme.text.tertiary,
 							}}
 						>
-							{pool.gravity_score ? pool.gravity_score.toFixed(2) : '0.00'}
+							{pool.gravity_score ? pool.gravity_score.toFixed(2) : '$1.32M'}
 						</span>
 					</div>
 
@@ -477,9 +479,10 @@ const PoolCard = ({ pool, theme, darkMode, isNew = false }) => {
 							justifyContent: 'space-between',
 						}}
 					>
-						Replies:
+						Created:
 						<span style={{ fontWeight: '400', marginLeft: '4px', color: theme.text.secondary }}>
-							{pool.replies || '--'}
+							{/* {pool.replies || '--'} */}
+							2 days ago
 						</span>
 					</div>
 				</div>
